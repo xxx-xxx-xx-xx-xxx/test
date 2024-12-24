@@ -60,9 +60,23 @@
             text-shadow: 0 0 5px #fff;
             text-align: center;
             position: absolute;
-            top: 50%;
+            top: 40%;
             left: 50%;
             transform: translate(-50%, -50%);
+        }
+
+        .discord-logo {
+            margin-top: 20px;
+            width: 60px;
+            height: 60px;
+            cursor: pointer;
+            filter: drop-shadow(0 0 10px white); /* Glowing effect */
+            transition: filter 0.3s ease; /* Smooth transition for hover */
+        }
+
+        /* Brighter glow on hover */
+        .discord-logo:hover {
+            filter: drop-shadow(0 0 20px white);
         }
 
         .snow {
@@ -116,6 +130,11 @@
     <!-- Main Content -->
     <div class="time" id="time"></div>
     <div class="title">court</div>
+
+    <!-- Discord Logo -->
+    <a href="https://discord.com" target="_blank">
+        <img src="https://www.iconsdb.com/icons/download/white/discord-512.png" alt="Discord" class="discord-logo">
+    </a>
 
     <div class="snow"></div>
 
