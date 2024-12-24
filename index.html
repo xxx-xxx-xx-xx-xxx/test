@@ -112,6 +112,16 @@
             width: 40px;
             height: 40px;
             cursor: pointer;
+            transition: box-shadow 0.3s ease; /* Smooth transition for glow effect */
+        }
+
+        .socials img:hover {
+            box-shadow: 0 0 15px 5px #00b0ff, 0 0 25px 10px #00b0ff; /* Discord glow */
+        }
+
+        /* Specific glow for Telegram logo */
+        .socials img:nth-child(2):hover {
+            box-shadow: 0 0 15px 5px #0088cc, 0 0 25px 10px #0088cc; /* Telegram glow */
         }
 
     </style>
