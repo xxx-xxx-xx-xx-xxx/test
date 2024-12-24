@@ -3,211 +3,82 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>court</title>
-    
+    <title>Abusive.me</title>
     <style>
-        @font-face {
-            font-family: "Minecraftia";
-            src: url("https://static.mojang.com/fonts/Minecraftia-Regular.ttf") format("truetype");
-        }
-
         body {
-            margin: 0;
-            padding: 0;
+            background-color: black;
+            color: white;
+            font-family: 'Courier New', Courier, monospace;
+            text-align: center;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             height: 100vh;
-            background-color: black;
-            color: white;
-            font-family: "Minecraftia", monospace;
+            margin: 0;
             overflow: hidden;
         }
 
-        .intro {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: black;
-            color: white;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 10;
-            text-align: center;
-            transition: opacity 1s ease;
-        }
-
-        .intro h1 {
-            font-size: 24px;
-            text-shadow: 0 0 5px #fff;
-        }
-
-        .time {
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            font-size: 24px;
-            color: white;
-            text-shadow: 0 0 5px #fff;
-        }
-
-        .title {
-            font-size: 48px;
-            margin: 20px 0;
-            text-shadow: 0 0 5px #fff;
-        }
-
-        .snow {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: -1;
-        }
-
-        .snowflake {
-            position: absolute;
-            top: -10px;
-            width: 5px;
-            height: 5px;
-            background-color: white;
-            border-radius: 50%;
+        #time {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
             opacity: 0.8;
-            animation: fall linear infinite, fadeOut 3s forwards;
         }
 
-        @keyframes fall {
-            0% {
-                transform: translateY(0) scale(1);
-                opacity: 0.8;
-            }
-            100% {
-                transform: translateY(90vh) scale(0.8);
-                opacity: 0.5;
-            }
+        #text {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            white-space: nowrap;
+            overflow: hidden;
+            border-right: 2px solid white;
+            width: 0;
+            animation: typing 4s steps(30, end), blink 0.5s step-end infinite alternate;
         }
 
-        @keyframes fadeOut {
-            0% {
-                opacity: 0.8;
-            }
-            100% {
-                opacity: 0;
-            }
+        @keyframes typing {
+            from { width: 0; }
+            to { width: 100%; }
         }
 
-        .socials {
-            display: flex;
-            gap: 20px;
+        @keyframes blink {
+            from { border-color: white; }
+            to { border-color: transparent; }
+        }
+
+        a {
+            color: #00acee;
+            text-decoration: none;
+            font-size: 1.5rem;
             margin-top: 20px;
+            transition: color 0.3s ease, transform 0.3s ease;
         }
 
-        .socials img {
-            width: 60px;
-            height: 60px;
-            cursor: pointer;
-            transition: box-shadow 0.3s ease; /* Smooth transition for glow effect */
+        a:hover {
+            color: #1da1f2;
+            transform: scale(1.1);
         }
-
-        /* Continuous Glow for Discord logo */
-        .socials img:nth-child(1) {
-            box-shadow: 0 0 15px 5px #00b0ff, 0 0 25px 10px #00b0ff; /* Discord glow */
-        }
-
-        /* Continuous Glow for Telegram logo */
-        .socials img:nth-child(2) {
-            box-shadow: 0 0 15px 5px #0088cc, 0 0 25px 10px #0088cc; /* Telegram glow */
-        }
-
-        /* Bright glow effect on hover */
-        .socials img:hover {
-            box-shadow: 0 0 20px 8px #ffffff, 0 0 30px 12px #ffffff; /* Bright glow effect on hover */
-        }
-
     </style>
 </head>
 <body>
-    <!-- Intro Screen -->
-    <div class="intro" id="intro">
-        <h1>Click anywhere to continue</h1>
-    </div>
-
-    <!-- Main Content -->
-    <div class="time" id="time"></div>
-    <div class="title">court</div>
-
-    <!-- Social Media Links -->
-    <div class="socials">
-        <!-- Discord -->
-        <a href="https://discord.com" target="_blank">
-            <img src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/discord-white-icon.png" alt="Discord">
-        </a>
-        <!-- Telegram -->
-        <a href="https://telegram.org" target="_blank">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/8/83/Telegram_2019_logo.svg" alt="Telegram">
-        </a>
-    </div>
-
-    <div class="snow"></div>
-
-    <!-- Background Audio (mp3.mp3 file) -->
-    <audio id="backgroundMusic" src="mp3.mp3" preload="auto"></audio>
+    <div id="time"></div>
+    <div id="text">Welcome to Abusive.me</div>
+    <p>This site is under construction. For inquiries, join our Discord server below:</p>
+    <a href="https://discord.gg/example" target="_blank">Join Discord</a>
 
     <script>
+        // Display real-time clock
         function updateTime() {
+            const timeElement = document.getElementById('time');
             const now = new Date();
             const hours = String(now.getHours()).padStart(2, '0');
             const minutes = String(now.getMinutes()).padStart(2, '0');
             const seconds = String(now.getSeconds()).padStart(2, '0');
-            document.getElementById('time').textContent = `${hours}:${minutes}:${seconds}`;
+            timeElement.textContent = `Current Time: ${hours}:${minutes}:${seconds}`;
         }
-
-        function createSnowflakes() {
-            const snowContainer = document.querySelector('.snow');
-            for (let i = 0; i < 100; i++) {
-                const snowflake = document.createElement('div');
-                snowflake.classList.add('snowflake');
-                snowflake.style.left = Math.random() * 100 + 'vw';
-                snowflake.style.animationDuration = Math.random() * 5 + 5 + 's';
-                snowflake.style.animationDelay = Math.random() * 5 + 's';
-                snowContainer.appendChild(snowflake);
-            }
-        }
-
-        function enterWebsite() {
-            const music = document.getElementById('backgroundMusic');
-            
-            // Attempt to play the audio
-            music.play()
-                .then(() => {
-                    console.log('Audio is playing');
-                    // Fade out the intro screen after music starts
-                    const intro = document.getElementById('intro');
-                    intro.style.opacity = '0';
-                    setTimeout(() => {
-                        intro.style.display = 'none';
-                    }, 1000);
-                })
-                .catch((error) => {
-                    console.error('Error playing music:', error);
-                    alert('Audio could not be played. Please check your file or browser permissions.');
-                });
-        }
-
-        document.getElementById('intro').addEventListener('click', enterWebsite);
-
         setInterval(updateTime, 1000);
+        updateTime();
 
-        window.onload = () => {
-            updateTime();
-            createSnowflakes();
-        };
+        // Typing animation starts automatically due to CSS
     </script>
 </body>
 </html>
