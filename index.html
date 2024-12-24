@@ -5,13 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>court</title>
     
-    <!-- Open Graph Meta Tags for Discord Embed -->
-    <meta property="og:title" content="Upcoming Biolink / Image Host" />
-    <meta property="og:description" content="Upcoming Biolink / Image Host By court17" />
-    <meta property="og:image" content="https://via.placeholder.com/500x250.png?text=Edit+This+Image+URL" />
-    <meta property="og:url" content="https://yourwebsiteurl.com" />
-    <meta name="theme-color" content="#000000" />
-
     <style>
         @font-face {
             font-family: "Minecraftia";
@@ -32,7 +25,6 @@
             overflow: hidden;
         }
 
-        /* Intro Screen Styles */
         .intro {
             position: fixed;
             top: 0;
@@ -54,30 +46,19 @@
             text-shadow: 0 0 5px #fff;
         }
 
-        /* Main Screen Styles */
         .time {
             position: absolute;
             top: 20px;
             left: 20px;
             font-size: 24px;
             color: white;
-            text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #fff, 0 0 25px #fff, 0 0 30px #fff;
+            text-shadow: 0 0 5px #fff;
         }
 
         .title {
             font-size: 48px;
             margin: 20px 0;
-            text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff;
-        }
-
-        .discord-logo img {
-            width: 50px;
-            height: 50px;
-            margin-top: 10px;
-        }
-
-        a {
-            text-decoration: none;
+            text-shadow: 0 0 5px #fff;
         }
 
         .snow {
@@ -131,15 +112,10 @@
     <!-- Main Content -->
     <div class="time" id="time"></div>
     <div class="title">court</div>
-    <div class="discord-logo">
-        <a href="https://discord.com" target="_blank">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/9/98/Discord_logo.svg" alt="Discord Logo">
-        </a>
-    </div>
     <div class="snow"></div>
 
     <!-- Background Audio -->
-    <audio id="backgroundMusic" src="your-music-file.mp3"></audio>
+    <audio id="backgroundMusic" src="your-music-file.mp3" preload="auto"></audio>
 
     <script>
         function updateTime() {
@@ -163,18 +139,23 @@
         }
 
         function enterWebsite() {
-            // Load and play background music
             const music = document.getElementById('backgroundMusic');
-            music.play().then(() => {
-                // Fade out the intro screen after music starts
-                const intro = document.getElementById('intro');
-                intro.style.opacity = '0';
-                setTimeout(() => {
-                    intro.style.display = 'none';
-                }, 1000);
-            }).catch(err => {
-                console.error("Error playing music: ", err);
-            });
+            
+            // Attempt to play the audio
+            music.play()
+                .then(() => {
+                    console.log('Audio is playing');
+                    // Fade out the intro screen after music starts
+                    const intro = document.getElementById('intro');
+                    intro.style.opacity = '0';
+                    setTimeout(() => {
+                        intro.style.display = 'none';
+                    }, 1000);
+                })
+                .catch((error) => {
+                    console.error('Error playing music:', error);
+                    alert('Audio could not be played. Please check your file or browser permissions.');
+                });
         }
 
         document.getElementById('intro').addEventListener('click', enterWebsite);
