@@ -115,13 +115,19 @@
             transition: box-shadow 0.3s ease; /* Smooth transition for glow effect */
         }
 
-        .socials img:hover {
+        /* Continuous Glow for Discord logo */
+        .socials img:nth-child(1) {
             box-shadow: 0 0 15px 5px #00b0ff, 0 0 25px 10px #00b0ff; /* Discord glow */
         }
 
-        /* Specific glow for Telegram logo */
-        .socials img:nth-child(2):hover {
+        /* Continuous Glow for Telegram logo */
+        .socials img:nth-child(2) {
             box-shadow: 0 0 15px 5px #0088cc, 0 0 25px 10px #0088cc; /* Telegram glow */
+        }
+
+        /* Bright glow effect on hover */
+        .socials img:hover {
+            box-shadow: 0 0 20px 8px #ffffff, 0 0 30px 12px #ffffff; /* Bright glow effect on hover */
         }
 
     </style>
@@ -140,7 +146,7 @@
     <div class="socials">
         <!-- Discord -->
         <a href="https://discord.com" target="_blank">
-            <img src="discord_logo.png" alt="Discord">
+            <img src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/discord-white-icon.png" alt="Discord">
         </a>
         <!-- Telegram -->
         <a href="https://telegram.org" target="_blank">
