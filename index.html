@@ -138,7 +138,8 @@
     </div>
     <div class="snow"></div>
 
-    <audio id="backgroundMusic" src="your-music-file.mp3" loop></audio>
+    <!-- Background Audio -->
+    <audio id="backgroundMusic" src="your-music-file.mp3"></audio>
 
     <script>
         function updateTime() {
@@ -162,16 +163,18 @@
         }
 
         function enterWebsite() {
-            // Play background music
+            // Load and play background music
             const music = document.getElementById('backgroundMusic');
-            music.play();
-
-            // Fade out the intro screen
-            const intro = document.getElementById('intro');
-            intro.style.opacity = '0';
-            setTimeout(() => {
-                intro.style.display = 'none';
-            }, 1000);
+            music.play().then(() => {
+                // Fade out the intro screen after music starts
+                const intro = document.getElementById('intro');
+                intro.style.opacity = '0';
+                setTimeout(() => {
+                    intro.style.display = 'none';
+                }, 1000);
+            }).catch(err => {
+                console.error("Error playing music: ", err);
+            });
         }
 
         document.getElementById('intro').addEventListener('click', enterWebsite);
