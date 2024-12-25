@@ -67,16 +67,15 @@
 
         .discord-logo {
             margin-top: 20px;
-            width: 100px;  /* Adjusted size */
-            height: 100px; /* Adjusted size */
+            width: 80px;  /* Adjusted size */
+            height: 80px; /* Adjusted size */
             cursor: pointer;
-            filter: drop-shadow(0 0 10px white); /* Glowing effect */
-            transition: filter 0.3s ease; /* Smooth transition for hover */
+            transition: transform 0.3s ease; /* Smooth zoom effect */
         }
 
-        /* Brighter glow on hover */
+        /* Zoom effect on hover */
         .discord-logo:hover {
-            filter: drop-shadow(0 0 20px white);
+            transform: scale(1.2);
         }
 
         .snow {
@@ -133,7 +132,7 @@
 
     <!-- Discord Logo -->
     <a href="https://discord.com" target="_blank">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Discord_Logo_2023.png" alt="Discord" class="discord-logo">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Discord_logo.svg" alt="Discord" class="discord-logo">
     </a>
 
     <div class="snow"></div>
