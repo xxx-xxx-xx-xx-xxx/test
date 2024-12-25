@@ -111,12 +111,21 @@
             margin-top: 20px;
         }
 
+        /* Style for the clickable images */
+        .socials a {
+            display: inline-block; /* Ensures the images act as clickable blocks */
+            border: none; /* Ensures no border */
+            padding: 0; /* Removes any padding */
+            margin: 0; /* Removes any margin */
+        }
+
         .socials img {
             width: 60px;
             height: 60px;
             cursor: pointer;
             filter: drop-shadow(0 0 10px white); /* Glowing effect */
             transition: filter 0.3s ease; /* Smooth transition for hover */
+            border-radius: 0; /* Ensures no border-radius (no box) */
         }
 
         /* Brighter glow on hover */
