@@ -47,35 +47,21 @@
         }
 
         .time {
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            font-size: 24px;
+            position: fixed; /* Keep the time fixed relative to the viewport */
+            top: 2%; /* Adjust position to ensure visibility */
+            left: 2%;
+            font-size: 1.5em; /* Scale the font size with zoom level */
             color: white;
             text-shadow: 0 0 5px #fff;
+            z-index: 100; /* Ensure it stays above other elements */
+            pointer-events: none; /* Prevent accidental interactions */
         }
 
         .title {
-            font-size: 48px;
+            font-size: 3em; /* Scales well with zoom levels */
+            margin: 20px 0;
             text-shadow: 0 0 5px #fff;
             text-align: center;
-            position: absolute;
-            top: 40%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-        }
-
-        .discord-logo {
-            margin-top: 20px;
-            width: 80px;  /* Adjusted size */
-            height: 80px; /* Adjusted size */
-            cursor: pointer;
-            transition: transform 0.3s ease; /* Smooth zoom effect */
-        }
-
-        /* Zoom effect on hover */
-        .discord-logo:hover {
-            transform: scale(1.2);
         }
 
         .snow {
@@ -118,6 +104,25 @@
                 opacity: 0;
             }
         }
+
+        .socials {
+            display: flex;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .socials img {
+            width: 60px;
+            height: 60px;
+            cursor: pointer;
+            filter: drop-shadow(0 0 10px white); /* Glowing effect */
+            transition: filter 0.3s ease; /* Smooth transition for hover */
+        }
+
+        /* Brighter glow on hover */
+        .socials img:hover {
+            filter: drop-shadow(0 0 20px white);
+        }
     </style>
 </head>
 <body>
@@ -130,10 +135,17 @@
     <div class="time" id="time"></div>
     <div class="title">court</div>
 
-    <!-- Discord Logo -->
-    <a href="https://discord.com" target="_blank">
-        <img src="discord_logo.png" alt="Discord" class="discord-logo">
-    </a>
+    <!-- Social Media Links -->
+    <div class="socials">
+        <!-- Discord -->
+        <a href="https://discord.com" target="_blank">
+            <img src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/discord-white-icon.png" alt="Discord">
+        </a>
+        <!-- Telegram -->
+        <a href="https://telegram.org" target="_blank">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/8/83/Telegram_2019_logo.svg" alt="Telegram">
+        </a>
+    </div>
 
     <div class="snow"></div>
 
